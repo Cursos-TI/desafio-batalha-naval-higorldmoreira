@@ -8,17 +8,29 @@ int main() {
     int tabuleiro[TAMANHO][TAMANHO] = {0};
     
     // Definição das coordenadas iniciais dos navios
-    int linha_horizontal = 2, coluna_horizontal = 3; // Posição inicial do navio horizontal
-    int linha_vertical = 5, coluna_vertical = 6; // Posição inicial do navio vertical
+    int linha_horizontal = 2, coluna_horizontal = 3; // Navio horizontal
+    int linha_vertical = 5, coluna_vertical = 6; // Navio vertical
+    int linha_diagonal1 = 1, coluna_diagonal1 = 1; // Navio diagonal principal (↘)
+    int linha_diagonal2 = 7, coluna_diagonal2 = 7; // Navio diagonal secundária (↙)
     
-    // Posicionando o navio horizontalmente (3 casas para a direita)
+    // Posicionando o navio horizontalmente
     for (int i = 0; i < TAM_NAVIO; i++) {
         tabuleiro[linha_horizontal][coluna_horizontal + i] = 3;
     }
     
-    // Posicionando o navio verticalmente (3 casas para baixo)
+    // Posicionando o navio verticalmente
     for (int i = 0; i < TAM_NAVIO; i++) {
         tabuleiro[linha_vertical + i][coluna_vertical] = 3;
+    }
+    
+    // Posicionando o navio diagonalmente (↘)
+    for (int i = 0; i < TAM_NAVIO; i++) {
+        tabuleiro[linha_diagonal1 + i][coluna_diagonal1 + i] = 3;
+    }
+    
+    // Posicionando o navio diagonalmente (↙)
+    for (int i = 0; i < TAM_NAVIO; i++) {
+        tabuleiro[linha_diagonal2 - i][coluna_diagonal2 - i] = 3;
     }
     
     // Exibição do tabuleiro
